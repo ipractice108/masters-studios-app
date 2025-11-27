@@ -35,13 +35,11 @@ export default function StudioPage() {
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isLoading, setIsLoading] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrors({});
     setIsLoading(true);
-    setSubmitStatus('idle');
 
     try {
       const dataToValidate = {
@@ -56,7 +54,6 @@ export default function StudioPage() {
 
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      setSubmitStatus('success');
       alert('Запрос успешно создан! Подходящие инструкторы получат уведомление.');
 
       // Reset form
@@ -78,7 +75,6 @@ export default function StudioPage() {
         });
         setErrors(formErrors);
       } else {
-        setSubmitStatus('error');
         alert('Ошибка: ' + getErrorMessage(error));
       }
     } finally {

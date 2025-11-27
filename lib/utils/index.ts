@@ -26,7 +26,7 @@ export function formatTime(time: string): string {
   return time;
 }
 
-export async function uploadFile(file: File, bucket: string): Promise<string> {
+export async function uploadFile(_file: File, _bucket: string): Promise<string> {
   // Заглушка для загрузки файлов в Supabase Storage
   // Реализуется при настройке Supabase
   return '';
