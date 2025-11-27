@@ -30,11 +30,11 @@ export default function HomePage() {
                 </div>
                 <h2 className="text-2xl font-bold mb-4 text-gray-800">Для преподавателей</h2>
                 <p className="text-gray-600 mb-6">
-                  Создайте профиль, укажите свои дисциплины и станции метро.
-                  Получайте уведомления о подходящих вакансиях от студий.
+                  Зарегистрируйтесь, укажите свои дисциплины и локацию.
+                  Смотрите актуальные замены на карте и откликайтесь на запросы студий.
                 </p>
                 <div className="inline-flex items-center text-blue-600 font-semibold group-hover:translate-x-2 transition-transform">
-                  Создать профиль
+                  Зарегистрироваться
                   <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
@@ -54,11 +54,11 @@ export default function HomePage() {
                 </div>
                 <h2 className="text-2xl font-bold mb-4 text-gray-800">Для студий</h2>
                 <p className="text-gray-600 mb-6">
-                  Создавайте запросы на поиск преподавателей.
-                  Находите квалифицированных инструкторов для замены или постоянной работы.
+                  Зарегистрируйте студию, создавайте запросы на замену.
+                  Смотрите доступных инструкторов на карте в вашей локации.
                 </p>
                 <div className="inline-flex items-center text-green-600 font-semibold group-hover:translate-x-2 transition-transform">
-                  Создать запрос
+                  Зарегистрироваться
                   <svg className="w-5 h-5 ml-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                     <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                   </svg>
