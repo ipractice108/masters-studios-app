@@ -1,6 +1,6 @@
 'use client';
 import Navbar from '@/components/Navbar';
-import Map from '@/components/Map';
+import YandexMap from '@/components/YandexMap';
 import BottomNav from '@/components/BottomNav';
 import { useState } from 'react';
 
@@ -67,7 +67,7 @@ export default function StudioDashboardPage() {
 
         {/* Map */}
         <div className="flex-1">
-          <Map locations={mapLocations} />
+          <YandexMap locations={mapLocations} />
         </div>
 
         {/* Quick Stats */}

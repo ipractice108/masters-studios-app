@@ -7,6 +7,7 @@ import Button from '@/components/ui/Button';
 import Input from '@/components/ui/Input';
 import MultiSelect from '@/components/ui/MultiSelect';
 import FileUpload from '@/components/ui/FileUpload';
+import YandexMapPicker from '@/components/YandexMapPicker';
 import { getErrorMessage } from '@/lib/utils';
 import { useRouter } from 'next/navigation';
 
@@ -147,27 +148,23 @@ export default function StudioRegisterPage() {
                 onChange={(e) => setFormData({ ...formData, address: e.target.value })}
                 placeholder="г. Москва, ул. Примерная, д. 1"
                 error={errors.address}
-                helperText="Полный адрес студии"
+                helperText="Адрес будет обновлен автоматически при выборе точки на карте"
               />
 
-              <div className="grid grid-cols-2 gap-4">
-                <Input
-                  label="Широта"
-                  type="number"
-                  step="0.000001"
-                  value={formData.latitude}
-                  onChange={(e) => setFormData({ ...formData, latitude: e.target.value })}
-                  placeholder="55.751244"
-                  helperText="Для отображения на карте"
-                />
-                <Input
-                  label="Долгота"
-                  type="number"
-                  step="0.000001"
-                  value={formData.longitude}
-                  onChange={(e) => setFormData({ ...formData, longitude: e.target.value })}
-                  placeholder="37.618423"
-                  helperText="Для отображения на карте"
+              <div>
+                <label className="block text-sm font-medium text-gray-700 mb-2">
+                  Выберите местоположение на карте *
+                </label>
+                <YandexMapPicker
+                  onLocationSelect={(lat, lng, address) => {
+                    setFormData({
+                      ...formData,
+                      latitude: lat.toString(),
+                      longitude: lng.toString(),
+                      address: address || formData.address,
+                    });
+                  }}
+                  height="400px"
                 />
               </div>
 
