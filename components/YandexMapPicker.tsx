@@ -28,8 +28,9 @@ export default function YandexMapPicker({
 
   useEffect(() => {
     // Загружаем Yandex Maps API
+    const apiKey = process.env.NEXT_PUBLIC_YANDEX_MAPS_API_KEY || 'YOUR_API_KEY';
     const script = document.createElement('script');
-    script.src = 'https://api-maps.yandex.ru/3.0/?apikey=YOUR_API_KEY&lang=ru_RU';
+    script.src = `https://api-maps.yandex.ru/3.0/?apikey=${apiKey}&lang=ru_RU`;
     script.async = true;
     script.onload = () => {
       if (window.ymaps3) {
@@ -112,8 +113,9 @@ export default function YandexMapPicker({
 
           // Получаем адрес через геокодер
           try {
+            const apiKey = process.env.NEXT_PUBLIC_YANDEX_MAPS_API_KEY || 'YOUR_API_KEY';
             const response = await fetch(
-              `https://geocode-maps.yandex.ru/1.x/?apikey=YOUR_API_KEY&geocode=${coords[0]},${coords[1]}&format=json&lang=ru_RU`
+              `https://geocode-maps.yandex.ru/1.x/?apikey=${apiKey}&geocode=${coords[0]},${coords[1]}&format=json&lang=ru_RU`
             );
             const data = await response.json();
             const geoObject = data.response.GeoObjectCollection.featureMember[0];
@@ -133,8 +135,9 @@ export default function YandexMapPicker({
 
       // Получаем начальный адрес
       try {
+        const apiKey = process.env.NEXT_PUBLIC_YANDEX_MAPS_API_KEY || 'YOUR_API_KEY';
         const response = await fetch(
-          `https://geocode-maps.yandex.ru/1.x/?apikey=YOUR_API_KEY&geocode=${initialLng},${initialLat}&format=json&lang=ru_RU`
+          `https://geocode-maps.yandex.ru/1.x/?apikey=${apiKey}&geocode=${initialLng},${initialLat}&format=json&lang=ru_RU`
         );
         const data = await response.json();
         const geoObject = data.response.GeoObjectCollection.featureMember[0];

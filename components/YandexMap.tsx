@@ -46,8 +46,9 @@ export default function YandexMap({
       return;
     }
 
+    const apiKey = process.env.NEXT_PUBLIC_YANDEX_MAPS_API_KEY || 'YOUR_API_KEY';
     const script = document.createElement('script');
-    script.src = 'https://api-maps.yandex.ru/3.0/?apikey=YOUR_API_KEY&lang=ru_RU';
+    script.src = `https://api-maps.yandex.ru/3.0/?apikey=${apiKey}&lang=ru_RU`;
     script.async = true;
     script.onload = () => {
       if (window.ymaps3) {
