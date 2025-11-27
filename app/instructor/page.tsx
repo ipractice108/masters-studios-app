@@ -41,13 +41,11 @@ export default function InstructorPage() {
 
   const [errors, setErrors] = useState<FormErrors>({});
   const [isLoading, setIsLoading] = useState(false);
-  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setErrors({});
     setIsLoading(true);
-    setSubmitStatus('idle');
 
     try {
       const dataToValidate = {
@@ -62,7 +60,6 @@ export default function InstructorPage() {
 
       await new Promise((resolve) => setTimeout(resolve, 1000));
 
-      setSubmitStatus('success');
       alert('Профиль успешно сохранён!');
     } catch (error: any) {
       if (error.errors) {
@@ -73,7 +70,6 @@ export default function InstructorPage() {
         });
         setErrors(formErrors);
       } else {
-        setSubmitStatus('error');
         alert('Ошибка: ' + getErrorMessage(error));
       }
     } finally {
